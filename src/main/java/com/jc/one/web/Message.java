@@ -3,36 +3,38 @@ package com.jc.one.web;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.HashMap;
+
 public class Message {
 
     private static final Integer SUCCESS = 200;
 
     private static final Integer ERROR = 500;
 
-    public abstract class MessageEntry {
+    public static abstract class MessageEntry {
 
         @Setter
         @Getter
-        private String statusCode;
+        private Integer statusCode;
 
-        MessageEntry(String statusCode) {
+        MessageEntry(Integer statusCode) {
             this.statusCode = statusCode;
         }
     }
 
-    private class SuccessMessageEntry extends MessageEntry {
+    private static class SuccessMessageEntry extends MessageEntry {
 
         @Setter
         @Getter
         private Object data;
 
-        SuccessMessageEntry(String statusCode, Object data) {
+        SuccessMessageEntry(Integer statusCode, Object data) {
             super(statusCode);
             this.data = data;
         }
     }
 
-    private class ErrorMessageEntry extends MessageEntry {
+    private static class ErrorMessageEntry extends MessageEntry {
 
         @Setter
         @Getter
@@ -42,10 +44,25 @@ public class Message {
         @Getter
         private String errorMsg;
 
-        ErrorMessageEntry(String statusCode, String errorCode, String errorMsg) {
+        ErrorMessageEntry(Integer statusCode, String errorCode, String errorMsg) {
             super(statusCode);
             this.errorCode = errorCode;
             this.errorMsg = errorMsg;
         }
+    }
+
+    public static MessageEntry ok(Object data) {
+        if (null == data) {
+            data = new HashMap<String, String>();
+        }
+        return new SuccessMessageEntry(SUCCESS, data);
+    }
+
+    public static MessageEntry ok() {
+        return new SuccessMessageEntry(SUCCESS, new HashMap<>());
+    }
+
+    public static MessageEntry error(String errorCode, String errorMsg) {
+        return new ErrorMessageEntry(ERROR, errorCode, errorMsg);
     }
 }
