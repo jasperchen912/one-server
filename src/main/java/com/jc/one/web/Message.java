@@ -33,4 +33,21 @@ public class Message {
             this.data = data;
         }
     }
+
+    private class ErrorMessageEntry extends MessageEntry {
+
+        @Setter
+        @Getter
+        private String errorCode;
+
+        @Setter
+        @Getter
+        private String errorMsg;
+
+        ErrorMessageEntry(String statusCode, String errorCode, String errorMsg) {
+            super(statusCode);
+            this.errorCode = errorCode;
+            this.errorMsg = errorMsg;
+        }
+    }
 }
