@@ -5,11 +5,9 @@ import lombok.Setter;
 
 public class Message {
 
-    //
     private static final Integer SUCCESS = 200;
 
     private static final Integer ERROR = 500;
-
 
     public abstract class MessageEntry {
 
