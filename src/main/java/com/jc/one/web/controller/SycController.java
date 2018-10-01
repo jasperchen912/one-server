@@ -8,12 +8,14 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 @RestController
 public class SycController {
 
+    @RequestMapping("/getLatestArticleFromOne")
     public MessageEntry getLatestArticleFromOne() {
         RestTemplate restTemplate = new RestTemplate();
 
