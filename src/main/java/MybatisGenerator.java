@@ -57,7 +57,7 @@ public class MybatisGenerator {
         // 包配置
         PackageConfig pc = new PackageConfig();
         pc.setModuleName(scanner("模块名"));
-        pc.setParent("com.jc.one");
+        pc.setParent("com.jc.one.component");
         mpg.setPackageInfo(pc);
 
         // 自定义配置
