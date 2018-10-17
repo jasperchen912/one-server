@@ -1,6 +1,8 @@
 package com.jc.one.component.saying.entity;
 
 import java.time.LocalDateTime;
+import java.util.Date;
+
 import com.jc.one.common.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -31,11 +33,11 @@ public class Saying extends BaseEntity {
 
     private String addOprid;
 
-    private LocalDateTime addDttm;
+    private Date addDttm;
 
     private String updOprid;
 
-    private LocalDateTime updDttm;
+    private Date updDttm;
 
     private String status;
 

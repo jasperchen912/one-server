@@ -1,6 +1,11 @@
 package com.jc.one.component.article.controller;
 
 
+import com.jc.one.component.article.entity.Article;
+import com.jc.one.component.article.service.IArticleService;
+import com.jc.one.web.Message;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -15,7 +20,14 @@ import com.jc.one.common.BaseController;
  * @since 2018-10-05
  */
 @RestController
-@RequestMapping("/article/article")
+@RequestMapping("/article")
 public class ArticleController extends BaseController {
 
+    @Autowired
+    private IArticleService articleService;
+
+    @RequestMapping
+    public Message.MessageEntry addArticle(@RequestBody Article article) {
+        return Message.ok(articleService.save(article));
+    }
 }
