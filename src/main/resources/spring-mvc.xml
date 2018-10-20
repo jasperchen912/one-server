@@ -19,7 +19,7 @@
        	http://www.springframework.org/schema/aop  
         http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
 	<!-- 数据源 -->
-	<util:properties id="config" location="classpath:application.yaml"/>
+	<util:properties id="config" location="classpath:application.yml"/>
 	<bean id="ds" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="#{config.driver}"></property>
 		<property name="url" value="#{config.url}"></property>
