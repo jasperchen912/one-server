@@ -26,8 +26,8 @@ public class ArticleController extends BaseController {
     @Autowired
     private IArticleService articleService;
 
-    @RequestMapping
-    public Message.MessageEntry addArticle(@RequestBody Article article) {
+    @RequestMapping(value = "/addBean.do")
+    public Message.MessageEntry addBean(@RequestBody Article article) {
         return Message.ok(articleService.save(article));
     }
 }
