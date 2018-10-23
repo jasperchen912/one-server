@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/saying")
 public class SayingController extends BaseController {
 
-    private final ISayingService sayingService ;
+    private final ISayingService sayingService;
 
     @Autowired
     public SayingController(ISayingService sayingService) {
